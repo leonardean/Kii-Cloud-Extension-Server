@@ -180,6 +180,7 @@ POST /emailConfigs/:emailConfigID/emails
  - **`templateID`**(optional, if `useTemplate` == `true`): template ID
  - **`subject`**(optional, if `useTemplate` == `false`): email subject
  - **`content`**(optional, if `useTemplate` == `false`): email content
+ - **`receiver`**: Kii User ID
   
 ###11. Create send email schedule(one time and periodic) 
 ```
