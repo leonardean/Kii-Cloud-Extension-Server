@@ -34,6 +34,16 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
+  },
+
+  'POST /emailConfigs/:emailConfigID/templates': {
+    controller: 'TemplatesController',
+    action: 'create'
+  },
+
+  'GET /emailConfigs/:emailConfigID': {
+    controller: 'TemplatesController',
+    action: 'find'
   }
 
   /***************************************************************************

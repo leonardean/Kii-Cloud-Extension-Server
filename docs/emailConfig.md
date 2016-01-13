@@ -18,8 +18,8 @@ POST /emailConfigs
  - **`emailAddr`**: email address
  - **`username`**: username of the email account, normally same as email address
  - **`password`** password of the email account
- - **`imap`**: imap server location
- - **`smtp`**: smtp server location
+ - **`smtpHost`**: smtp server location
+ - **`portNum`**: smtp server port number
 
 ####Response
  - **`201`**: created

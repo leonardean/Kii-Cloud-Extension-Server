@@ -10,7 +10,27 @@
  */
 
 module.exports.bootstrap = function(cb) {
-
+	sails.request = require('request');
+	sails.bcrypt = require('bcrypt');
+	sails.uuid = require('uuid');
+	EmailConfigs.native(function(err, collection) {
+	  collection.ensureIndex(['appID'], {
+	    unique: true
+	  }, function(err, result) {
+	    if (err) {
+	      sails.log.error(err);
+	    }
+	  });
+	});
+	Templates.native(function(err, collection) {
+		collection.ensureIndex(['templateId'], {
+			unique: true
+		}, function(err, result) {
+			if (err) {
+				sails.log.error(err)
+			}
+		})
+	})
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
   cb();
