@@ -61,6 +61,11 @@ module.exports.routes = {
     action: 'findOne'
   },
 
+  'PUT /emailConfigs/:emailConfigID/templates/:templateID': {
+    controller: 'TemplatesController',
+    action: 'update'
+  },
+
   'DELETE /emailConfigs/:emailConfigID/templates/:templateID': {
     controller: 'TemplatesController',
     action: 'destroy'

@@ -48,7 +48,21 @@ module.exports = {
   			res.ok(found);
   		}
   	})
-  }    
+  },
+
+  /* update a template with templateID */
+  update: function(req, res) {
+    var emailConfigID = req.headers['x-app-id'];
+    var templateID = req.param('templateID');    
+    Templates.update({emailConfigID: emailConfigID, templateID: templateID},req.body)
+      .exec(function afterwards(err, updated){
+      if (err) {
+        res.serverError(err);
+        return;
+      }
+      res.ok(updated[0]);
+    }); 
+  },           
 
   /* delete one template with specified templateID */
   destroy: function (req, res) {

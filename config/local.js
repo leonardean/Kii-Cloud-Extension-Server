@@ -39,10 +39,9 @@ module.exports = {
    ***************************************************************************/
 
   // ssl: {
-  //   ca: require('fs').readFileSync(__dirname + './ssl/my_apps_ssl_gd_bundle.crt'),
-  //   key: require('fs').readFileSync(__dirname + './ssl/my_apps_ssl.key'),
-  //   cert: require('fs').readFileSync(__dirname + './ssl/my_apps_ssl.crt')
-  // },
+  //   key: require('fs').readFileSync(__dirname + '/ssl/key.pem'),
+  //   cert: require('fs').readFileSync(__dirname + '/ssl/cert.pem')
+  // }
 
   /***************************************************************************
    * The `port` setting determines which TCP port your app will be           *
