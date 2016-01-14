@@ -8,7 +8,7 @@
 module.exports = {
 
   attributes: {  	
-  	appID: {
+  	emailConfigID: {
   		type: 'string',
   		primaryKey: true,
   		required: true,

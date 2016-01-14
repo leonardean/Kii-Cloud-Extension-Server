@@ -14,7 +14,7 @@ module.exports.bootstrap = function(cb) {
 	sails.bcrypt = require('bcrypt');
 	sails.uuid = require('uuid');
 	EmailConfigs.native(function(err, collection) {
-	  collection.ensureIndex(['appID'], {
+	  collection.ensureIndex(['emailConfigID'], {
 	    unique: true
 	  }, function(err, result) {
 	    if (err) {
@@ -23,7 +23,7 @@ module.exports.bootstrap = function(cb) {
 	  });
 	});
 	Templates.native(function(err, collection) {
-		collection.ensureIndex(['templateId'], {
+		collection.ensureIndex(['templateID'], {
 			unique: true
 		}, function(err, result) {
 			if (err) {

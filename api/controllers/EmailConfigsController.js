@@ -8,12 +8,12 @@
 module.exports = {
 	
   /**
-   * `EmailController.create()`
+   *  create email config data
    */
   create: function (req, res) {
-		var appID = req.headers['x-app-id'];
+		var emailConfigID = req.headers['x-app-id'];
 		var body = req.body;
-		body.appID = appID;
+		body.emailConfigID = emailConfigID;
 		EmailConfigs.create(body).exec(function createCB(err, created) {
 			if (err) {
 				res.badRequest(err)
@@ -24,10 +24,41 @@ module.exports = {
   },
 
   /**
-   * `EmailController.find()`
+   *  get single email config data
+   */  
+  findOne: function(req, res) {
+  	var emailConfigID = req.param('emailConfigID');
+  	EmailConfigs.findOne({emailConfigID: emailConfigID}).exec(function findOneCB(err, found){
+  		res.jsonp(200, found)
+		});
+  },
+
+  /**
+   *  update an email config
    */
-  find: function (req, res) {
-    res.notFound('Bad boy, you are not supposed to be able to see all the email configs!');
-  }
+  update: function(req, res) {
+  	var emailConfigID = req.param('emailConfigID');
+  	EmailConfigs.update({emailConfigID: emailConfigID},req.body).exec(function afterwards(err, updated){
+  		if (err) {
+    		res.serverError(err);
+    		return;
+  		}
+  		res.ok(updated[0]);
+		});	
+  }, 
+
+  /**
+   *  remove an email config
+   */
+  destroy: function(req, res) {
+  	var emailConfigID = req.param('emailConfigID');
+  	EmailConfigs.destroy({emailConfigID: emailConfigID}).exec(function deleteCB(err){
+  		if (err) {
+  			res.serverError(err);
+  			return;
+  		}
+  		res.noContent()
+  	})
+  }  
 };
 

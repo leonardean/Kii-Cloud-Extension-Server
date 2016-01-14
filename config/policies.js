@@ -35,7 +35,11 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
   EmailConfigsController: {
-    '*': 'isAdmin'
+    '*': ['isAdmin', 'appOwner']
+  },
+
+  TemplatesController: {
+    '*': ['isAdmin', 'appOwner']
   }
 	// RabbitController: {
 

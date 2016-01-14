@@ -24,7 +24,9 @@
     "sails-disk": "~0.10.0",
     "request": "2.67.0",
     "bcrypt": "0.8.5",
-    "uuid": "2.0.1"
+    "uuid": "2.0.1",
+    "smtp-connection": "2.0.0",
+    "mailcomposer": "3.0.1"
   },
   "scripts": {
     "debug": "node debug app.js",

@@ -18,42 +18,52 @@
  *
  * For more information on configuring custom routes, check out:
  * http://sailsjs.org/#!/documentation/concepts/Routes/RouteTargetSyntax.html
- */
+ */  
+ 
 
 module.exports.routes = {
 
-  /***************************************************************************
-  *                                                                          *
-  * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
-  * etc. depending on your default view engine) your home page.              *
-  *                                                                          *
-  * (Alternatively, remove this and add an `index.html` file in your         *
-  * `assets` directory)                                                      *
-  *                                                                          *
-  ***************************************************************************/
-
-  '/': {
-    view: 'homepage'
+  // Email configs
+  'GET /emailConfigs/:emailConfigID': {
+    controller: 'EmailConfigsController',
+    action: 'findOne'
   },
 
+  'POST /emailConfigs': {
+    controller: 'EmailConfigsController',
+    action: 'create'
+  },
+
+  'DELETE /emailConfigs/:emailConfigID': {
+    controller: 'EmailConfigsController',
+    action: 'destroy'
+  },
+
+  'PUT /emailConfigs/:emailConfigID': {
+    controller: 'EmailConfigsController',
+    action: 'update'
+  },
+
+
+  // Templates
   'POST /emailConfigs/:emailConfigID/templates': {
     controller: 'TemplatesController',
     action: 'create'
   },
 
-  'GET /emailConfigs/:emailConfigID': {
+  'GET /emailConfigs/:emailConfigID/templates': {
     controller: 'TemplatesController',
     action: 'find'
-  }
+  },
 
-  /***************************************************************************
-  *                                                                          *
-  * Custom routes here...                                                    *
-  *                                                                          *
-  * If a request to a URL doesn't match any of the custom routes above, it   *
-  * is matched against Sails route blueprints. See `config/blueprints.js`    *
-  * for configuration options and examples.                                  *
-  *                                                                          *
-  ***************************************************************************/
+  'GET /emailConfigs/:emailConfigID/templates/:templateID': {
+    controller: 'TemplatesController',
+    action: 'findOne'
+  },
+
+  'DELETE /emailConfigs/:emailConfigID/templates/:templateID': {
+    controller: 'TemplatesController',
+    action: 'destroy'
+  }
 
 };

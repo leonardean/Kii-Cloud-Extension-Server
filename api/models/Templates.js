@@ -1,7 +1,7 @@
 module.exports = {
 
   attributes: {  	
-  	appID: {
+  	emailConfigID: {
   		type: 'string',
   		foreignKey: true,
   		required: true
@@ -19,7 +19,7 @@ module.exports = {
   		type: 'string',
   		required: true
   	},
-    templateId: {
+    templateID: {
       type: 'string',
       unique: true,
       primaryKey: true,
