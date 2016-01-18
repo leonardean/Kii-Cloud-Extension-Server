@@ -7,6 +7,9 @@
 ```
 POST /login
 ```
+####Headers
+ - **`content-type`**: application/json
+ 
 ####Body
  - **`username`**: developer username, normally an email address
  - **`password`**: developer password
