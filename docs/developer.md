@@ -5,7 +5,7 @@
 > login as a developer and get a develop access token, which can be used for apps operations
 
 ```
-/login
+POST /login
 ```
 ####Body
  - **`username`**: developer username, normally an email address
@@ -27,7 +27,7 @@
 ###2. Create an app
 ###3. Get all apps info
 ```
-/apps
+GET /apps
 ```
 ####Headers
  - **`Authorization`**: Bearer + token
@@ -87,7 +87,7 @@
 ###4. Get single app info
 > get single app detailed info, along with access token
 ```
-apps/:appID
+GET apps/:appID
 ```
 ####Headers
  - **`Authorization`**: Bearer + token
