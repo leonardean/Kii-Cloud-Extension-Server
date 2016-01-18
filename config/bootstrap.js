@@ -12,6 +12,7 @@
 module.exports.bootstrap = function(cb) {
 	sails.request = require('request');
 	sails.uuid = require('uuid');
+	sails.portalServerHost = 'kii-yubari.herokuapp.com';
 
 	EmailConfigs.native(function(err, collection) {
 	  collection.ensureIndex(['emailConfigID'], {

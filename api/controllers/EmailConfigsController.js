@@ -26,12 +26,14 @@ module.exports = {
     connection.connect(function() {
     })
 
+    // authenticate the email account
     connection.on('connect', function() {
       connection.login({
         user: body.username,
         pass: body.password
       }, function(err) {
         if (!err) {
+          // if no err, save the email config
           connection.quit();
           body.emailConfigID = emailConfigID;
           body.password = sails.encrypt(body.password);

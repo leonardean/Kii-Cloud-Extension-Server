@@ -74,5 +74,26 @@ module.exports.routes = {
   'DELETE /emailConfigs/:emailConfigID/templates/:templateID': {
     controller: 'TemplatesController',
     action: 'destroy'
-  }  
+  },  
+
+  //Developers
+  'POST /login': {
+    controller: 'DevelopersController',
+    action: 'login'
+  },
+
+  'POST /apps': {
+    controller: 'DevelopersController',
+    action: 'create'
+  },
+
+  'GET /apps': {
+    controller: 'DevelopersController',
+    action: 'find'
+  },
+
+  'GET /apps/:appID': {
+    controller: 'DevelopersController',
+    action: 'findOne'
+  }
 };
