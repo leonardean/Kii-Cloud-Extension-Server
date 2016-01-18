@@ -29,11 +29,6 @@ module.exports = {
   	smtpHost: {
   		type: 'string',
   		required: true
-  	},
-  	portNum: {
-  		type: 'integer',
-  		required: true,
-  		integer: true
   	}
   }
 };

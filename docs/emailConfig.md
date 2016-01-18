@@ -176,11 +176,21 @@ POST /emailConfigs/:emailConfigID/emails
  - **`Content-Type`**: application/json
 
 ####Body
- - **`useTemplate`**: boolean, whether the content of email uses template
- - **`templateID`**(optional, if `useTemplate` == `true`): template ID
- - **`subject`**(optional, if `useTemplate` == `false`): email subject
- - **`content`**(optional, if `useTemplate` == `false`): email content
- - **`receiver`**: Kii User ID
+ - **`receivers`**: 
+  - **`type`**: Enum: `[all, who]`
+  - **`who`**:(optional,if `type` == `who`): a Kii User ID
+ - **`body`**:
+  - **`type`**: Enum: `[template, what]`
+  - **`templateID`**(optional, if `type` == `template`): template ID
+  - **`subject`**(optional, if `type` == `what`): email subject
+  - **`contentType`**(optional, if `type` == `what`): email content type 
+  - **`content`**(optional, if `type` == `what`): email content
+ 
+####Reponse
+ - **`200`**: OK:
+  - **`success`**: int, number of successfully emails sent
+  - **`failure`**: Array of userID 
+ - **`401`**: Unauthorized
   
 ###11. Create send email schedule(one time and periodic) 
 ```

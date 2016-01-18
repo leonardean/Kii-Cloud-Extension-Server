@@ -1,8 +1,8 @@
 {
-  "name": "testProject",
+  "name": "Kii Cloud Starter Pack Server",
   "private": true,
   "version": "0.0.0",
-  "description": "a Sails application",
+  "description": "An extension server for IoT scenarios",
   "keywords": [],
   "dependencies": {
     "ejs": "~0.8.4",
@@ -26,7 +26,9 @@
     "bcrypt": "0.8.5",
     "uuid": "2.0.1",
     "smtp-connection": "2.0.0",
-    "mailcomposer": "3.0.1"
+    "mailcomposer": "3.0.1",
+    "cryptlib": "1.0.3",
+    "nodemailer": "2.0.0"
   },
   "scripts": {
     "debug": "node debug app.js",

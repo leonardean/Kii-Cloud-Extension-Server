@@ -44,6 +44,11 @@ module.exports.routes = {
     action: 'update'
   },
 
+  'POST /emailConfigs/:emailConfigID/emails': {
+    controller: 'EmailConfigsController',
+    action: 'sendEmails'
+  },
+
 
   // Templates
   'POST /emailConfigs/:emailConfigID/templates': {
@@ -69,6 +74,5 @@ module.exports.routes = {
   'DELETE /emailConfigs/:emailConfigID/templates/:templateID': {
     controller: 'TemplatesController',
     action: 'destroy'
-  }
-
+  }  
 };

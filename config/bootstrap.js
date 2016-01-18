@@ -11,8 +11,8 @@
 
 module.exports.bootstrap = function(cb) {
 	sails.request = require('request');
-	sails.bcrypt = require('bcrypt');
 	sails.uuid = require('uuid');
+
 	EmailConfigs.native(function(err, collection) {
 	  collection.ensureIndex(['emailConfigID'], {
 	    unique: true
@@ -31,6 +31,19 @@ module.exports.bootstrap = function(cb) {
 			}
 		})
 	})
+
+	var cryptLib = require('cryptlib')
+
+	var iv = 'LDhVNa9MDmepcNcX' //cryptLib.generateRandomIV(16)
+	var key = '420b09055cb4e27a40bce8f1cde91b6a' //cryptLib.getHashSha256('burnAllTheBabies', 32)
+
+	sails.encrypt = function(plainText) {
+		return cryptLib.encrypt(plainText, key, iv)
+	}
+
+	sails.decrypt = function(cypherText) {
+		return cryptLib.decrypt(cypherText, key, iv)
+	}
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
   cb();
