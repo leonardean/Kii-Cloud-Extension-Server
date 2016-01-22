@@ -1,5 +1,5 @@
 {
-  "name": "Kii Cloud Starter Pack Server",
+  "name": "KiiCloudStarterPackServer",
   "private": true,
   "version": "0.0.0",
   "description": "An extension server for IoT scenarios",
@@ -28,7 +28,8 @@
     "smtp-connection": "2.0.0",
     "mailcomposer": "3.0.1",
     "cryptlib": "1.0.3",
-    "nodemailer": "2.0.0"
+    "nodemailer": "2.0.0",
+    "fs-extra": "0.26.4"
   },
   "scripts": {
     "debug": "node debug app.js",

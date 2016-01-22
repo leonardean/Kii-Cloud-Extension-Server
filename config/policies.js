@@ -40,6 +40,10 @@ module.exports.policies = {
 
   TemplatesController: {
     '*': ['isAdmin', 'appOwner']
+  },
+
+  ServerCodeController: {
+    '*': ['isAdmin', 'appOwner']
   }
 	// RabbitController: {
 

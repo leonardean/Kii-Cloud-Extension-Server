@@ -95,5 +95,11 @@ module.exports.routes = {
   'GET /apps/:appID': {
     controller: 'DevelopersController',
     action: 'findOne'
+  },
+
+  //ServerCode
+  'POST /serverCode': {
+    controller: 'ServerCodeController',
+    action: 'create'
   }
 };

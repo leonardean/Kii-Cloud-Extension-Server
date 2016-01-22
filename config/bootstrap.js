@@ -13,6 +13,7 @@ module.exports.bootstrap = function(cb) {
 	sails.request = require('request');
 	sails.uuid = require('uuid');
 	sails.portalServerHost = 'kii-yubari.herokuapp.com';
+	sails.fs = require('fs')
 
 	EmailConfigs.native(function(err, collection) {
 	  collection.ensureIndex(['emailConfigID'], {
@@ -25,6 +26,15 @@ module.exports.bootstrap = function(cb) {
 	});
 	Templates.native(function(err, collection) {
 		collection.ensureIndex(['templateID'], {
+			unique: true
+		}, function(err, result) {
+			if (err) {
+				sails.log.error(err)
+			}
+		})
+	})
+	ServerCode.native(function(err, collection) {
+		collection.ensureIndex(['name'], {
 			unique: true
 		}, function(err, result) {
 			if (err) {
